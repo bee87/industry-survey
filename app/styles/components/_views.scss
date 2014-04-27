@@ -64,6 +64,10 @@
     &.disabled{
       opacity: 0.5;
       transform: scale(0.9);
+      // IE
+      &:hover{
+        border-color: transparent;
+      }
     }
     &.active{
       .industry-icon{

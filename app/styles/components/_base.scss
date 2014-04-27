@@ -3,7 +3,7 @@
  */
 
 html {
-  background: $bg-color url($page-background) no-repeat center center;
+  background: $bg-color url($page-background) no-repeat center top;
   background-size: cover;
   min-height: 100%;
 }
@@ -75,6 +75,8 @@ p{
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
   box-shadow: none;
+  // IE
+  text-shadow: 0 0 0;
 }
 
 .container{
