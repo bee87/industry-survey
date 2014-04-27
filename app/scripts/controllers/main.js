@@ -28,7 +28,7 @@ angular.module('surveyApp')
       isDisabled: function(item) {
         return !item.selected && this.getSelected().length >= MAX_SELECTED;
       },
-      // Ensure propert behavior when an item is selected.
+      // Ensure proper behavior when an item is selected.
       // The random button would select a randomized industry.
       checkSelection: function(item) {
         if (this.getSelected().length > MAX_SELECTED) {
