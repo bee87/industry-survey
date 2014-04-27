@@ -13,7 +13,7 @@
           ng-model="industry.selected"
           ng-disabled="methods.isDisabled(industry)"
           tabindex="{{methods.isDisabled(industry) ? -1 : ($parent.$index * 4) + $index + 1}}"
-          class="industry-choice"
+          class="industry-choice clearfix"
           ng-class="{disabled: methods.isDisabled(industry), wiggobble: industry.selected}"
           ng-change="methods.checkSelection(industry)">
           <div class="industry-icon icon-{{industry.slug}}"></div>

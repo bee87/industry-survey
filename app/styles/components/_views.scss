@@ -42,15 +42,14 @@
     border-radius: $base-border-radius;
     transition: 0.2s all;
     cursor: pointer;
-    min-height: 225px;
     margin-bottom: 20px;
     @include shade();
     @include min-tablet() {
       height: 225px;
       margin-bottom: 30px;
     }
-    &:hover{
-      color: #fff;
+    &:hover, &.active{
+      border-color: $green-icon-color;
     }
     &:focus{
       // Default
@@ -58,22 +57,13 @@
       // WebKit
       outline: 5px auto -webkit-focus-ring-color;
       outline-offset: -2px;
+      &:hover{
+        outline: none;
+      }
     }
     &.disabled{
       opacity: 0.5;
       transform: scale(0.9);
-    }
-    p{
-      margin: 0;
-      padding-right: 10px;
-      padding-left: 10px;
-      font-size: 16px;
-    }
-    &:hover, &.active{
-      border-color: $green-icon-color;
-    }
-    &:hover:focus{
-      outline: 0;
     }
     &.active{
       .industry-icon:after{
@@ -83,16 +73,42 @@
     .industry-icon{
       margin: 0 0 10px;
     }
+    p{
+      margin: 0;
+      padding-right: 10px;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+    @include max-mobile(767px) {
+      .industry-icon{
+        float: left;
+        width: 50px;
+        height: 32.5px;
+        margin: 5px;
+      }
+      .industry-icon, .industry-icon:after{
+        background-size: 50px;
+      }
+      p{
+        text-align: left;
+        margin-left: 60px;
+        padding-top: 10px;
+      }
+    }
   }
   .btn-frame{
-    margin-top: 30px;
+    margin-top: 10px;
     overflow: hidden;
+    @include min-tablet() {
+      margin-top: 30px;
+    }
     .submit-btn{
       @include cta-button($green-btn-color);
       min-width: 310px;
-      @include max-mobile() {
+      @include max-mobile(767px) {
         width: 100%;
         min-width: 100%;
+        display: block;
       }
     }
   }
@@ -187,7 +203,7 @@
     text-decoration: none;
     color: $green-btn-color;
   }
-  @include min-tablet() {
+  @include min-desktop() {
     @media screen and (min-height: 700px) {
       position: absolute;
       bottom: 80px;
