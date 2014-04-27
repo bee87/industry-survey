@@ -34,33 +34,35 @@ angular.module('surveyApp').run(['$templateCache', function($templateCache) {
     "  <h1>Industry Analyzer</h1>\n" +
     "  <h2>Select Up To 4 Industries To Compare</h2>\n" +
     "  <p class=\"note\">(you can change these at any time)</p>\n" +
-    "  <div class=\"row\" ng-repeat=\"group in data.industries\">\n" +
-    "    <div ng-repeat=\"industry in group\" class=\"col-sm-3\">\n" +
+    "  <form ng-submit=\"methods.submit()\">\n" +
+    "    <div class=\"row\" ng-repeat=\"group in data.industries\">\n" +
+    "      <div ng-repeat=\"industry in group\" class=\"col-sm-3\">\n" +
+    "        <button\n" +
+    "          role=\"option\"\n" +
+    "          aria-label=\"Select {{industry.title}}\"\n" +
+    "          type=\"button\"\n" +
+    "          btn-checkbox\n" +
+    "          ng-model=\"industry.selected\"\n" +
+    "          ng-disabled=\"methods.isDisabled(industry)\"\n" +
+    "          tabindex=\"{{methods.isDisabled(industry) ? -1 : ($parent.$index * 4) + $index + 1}}\"\n" +
+    "          class=\"industry-choice\"\n" +
+    "          ng-class=\"{disabled: methods.isDisabled(industry), wiggobble: industry.selected}\"\n" +
+    "          ng-change=\"methods.checkSelection(industry)\">\n" +
+    "          <div class=\"industry-icon icon-{{industry.slug}}\"></div>\n" +
+    "          <p>{{industry.title}}</p>\n" +
+    "        </button>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"btn-frame\">\n" +
     "      <button\n" +
-    "        role=\"option\"\n" +
-    "        aria-label=\"Select {{industry.title}}\"\n" +
-    "        type=\"button\"\n" +
-    "        btn-checkbox\n" +
-    "        ng-model=\"industry.selected\"\n" +
-    "        ng-disabled=\"methods.isDisabled(industry)\"\n" +
-    "        tabindex=\"{{methods.isDisabled(industry) ? -1 : ($parent.$index * 4) + $index + 1}}\"\n" +
-    "        class=\"industry-choice\"\n" +
-    "        ng-class=\"{disabled: methods.isDisabled(industry), wiggobble: industry.selected}\"\n" +
-    "        ng-change=\"methods.checkSelection(industry)\">\n" +
-    "        <div class=\"industry-icon icon-{{industry.slug}}\"></div>\n" +
-    "        <p>{{industry.title}}</p>\n" +
+    "        type=\"submit\"\n" +
+    "        ng-disabled=\"!methods.getSelected().length\"\n" +
+    "        ng-class=\"{disabled: !methods.getSelected().length}\"\n" +
+    "        class=\"submit-btn btn btn-lg\">\n" +
+    "        Submit Choices\n" +
     "      </button>\n" +
     "    </div>\n" +
-    "  </div>\n" +
-    "  <div class=\"btn-frame\">\n" +
-    "    <button\n" +
-    "      type=\"button\"\n" +
-    "      ng-click=\"methods.submit()\"\n" +
-    "      ng-class=\"{disabled: !methods.getSelected().length}\"\n" +
-    "      class=\"submit-btn btn btn-lg\">\n" +
-    "      Submit Choices\n" +
-    "    </button>\n" +
-    "  </div>\n" +
+    "  </form>\n" +
     "</div>\n"
   );
 
