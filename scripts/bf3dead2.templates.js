@@ -45,7 +45,7 @@ angular.module('surveyApp').run(['$templateCache', function($templateCache) {
     "          ng-model=\"industry.selected\"\n" +
     "          ng-disabled=\"methods.isDisabled(industry)\"\n" +
     "          tabindex=\"{{methods.isDisabled(industry) ? -1 : ($parent.$index * 4) + $index + 1}}\"\n" +
-    "          class=\"industry-choice\"\n" +
+    "          class=\"industry-choice clearfix\"\n" +
     "          ng-class=\"{disabled: methods.isDisabled(industry), wiggobble: industry.selected}\"\n" +
     "          ng-change=\"methods.checkSelection(industry)\">\n" +
     "          <div class=\"industry-icon icon-{{industry.slug}}\"></div>\n" +
