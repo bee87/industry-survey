@@ -1,0 +1,85 @@
+/**
+ * Mixins
+ */
+
+@mixin min-tablet($tablet-width: 768px) {
+  @media only screen and (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin min-desktop($desktop-width: 1040px) {
+  @media only screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin max-mobile($mobile-width: 440px) {
+  @media only screen and (max-width : $mobile-width) {
+    @content;
+  }
+}
+
+@mixin retina() {
+  @media only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+    @content;
+  }
+}
+
+@mixin bg-image($url, $retina-suffix: false, $extension: 'png') {
+  background-image: url(#{$url}.#{$extension});
+  @if ($retina-suffix) {
+    @include retina() {
+      background-image: url(#{$url}#{$retina-suffix}.#{$extension});
+    }
+  }
+}
+
+@mixin industry-icon-class(
+  $class-name,
+  $retina-suffix: '@2x',
+  $image-path: '../images/icons') {
+  .icon-#{$class-name}, .icon-#{$class-name}:after {
+    @include bg-image('#{$image-path}/#{$class-name}', $retina-suffix);
+  }
+}
+
+@mixin shade($alpha: 0.15) {
+  background: rgba(0,0,0,$alpha);
+}
+
+@mixin cta-button($color) {
+  background: $color;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+  text-align: center;
+  padding: 18px 0;
+  &:hover{
+    background: lighten($color, 5%);
+  }
+}
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+   @content;
+  }
+
+  &:-moz-placeholder {
+     @content;
+  }
+
+  &::-moz-placeholder {
+     @content;
+  }
+
+  &:-ms-input-placeholder {
+     @content;
+  }
+}
+

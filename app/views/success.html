@@ -1,0 +1,21 @@
+<div class="success-view base-view" ng-switch="isLoading">
+  <div class="loading-frame" ng-switch-when="true">
+    <h2>Finding the best commerce solution... Just for you</h2>
+    <div class="bubble-loader">
+      <div class="1"></div>
+      <div class="2"></div>
+      <div class="3"></div>
+      <div class="4"></div>
+      <div class="5"></div>
+    </div>
+  </div>
+  <div class="shop-frame bounce-in" ng-switch-when="false">
+    <h2>The best commerce solution for you is...</h2>
+    <div class="success-image-frame">
+      <a href="http://shopify.com" target="_blank">
+        <img alt="Shopify" src="images/shopify-icon.png">
+      </a>
+    </div>
+    <h1>Shopify</h1>
+  </div>
+</div>

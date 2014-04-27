@@ -1,0 +1,87 @@
+/**
+ * Base Styles
+ */
+
+html {
+  background: $bg-color url($page-background) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100%;
+}
+
+body{
+  background: none;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  color: $base-text-color;
+  line-height: $base-line-height;
+}
+
+h1, h2, h3{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1{
+  font-size: 48px;
+  font-weight: bold;
+  @include min-tablet() {
+    font-size: 80px;
+  }
+}
+
+h2{
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 18px;
+  @include min-tablet() {
+    font-size: 24px;
+  }
+}
+
+p{
+  font-weight: 300;
+  margin: 0 0 10px;
+  @include min-tablet() {
+    font-size: 18px;
+  }
+}
+
+.btn, .form-control{
+  border-radius: $base-border-radius;
+}
+
+.form-control{
+  box-shadow: 0 0 0;
+  @include shade();
+  border-color: transparent;
+  color: #fff;
+  padding: 20px;
+  line-height: 1.3;
+  font-size: $base-font-size;
+  &:focus{
+    box-shadow: 0 0 0;
+    border-color: $green-btn-color;
+  }
+  @include placeholder() {
+    color: $muted-color;
+  }
+}
+
+.disabled{
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.container{
+  // Effective width of 990px for inner element
+  max-width: 1020px;
+  @include min-desktop() {
+    width: 1020px;
+  }
+}
+

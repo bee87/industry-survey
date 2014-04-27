@@ -1,0 +1,24 @@
+<div class="closing-view base-view">
+  <div class="closing-content">
+    <h1>{{data.count > 1 ? 'Choices' : 'Choice'}} Submitted</h1>
+    <p>
+      Thanks for your {{data.count > 1 ? 'choices' : 'choice'}}. You chose
+      <span ng-repeat="item in data.selected"><span class="selected-shade">{{item.title}}{{$index === data.count - 1 ? '.' : ($index < data.count - 2 ? ',' : '')}}</span>{{$index === data.count - 2 ? ' and ' : ''}}</span>Want more information? Enter your email address below.
+    </p>
+    <div class="form-frame">
+      <form ng-submit="methods.submit()">
+        <div class="input-group">
+          <input ng-model="data.email" type="email" required class="form-control" placeholder="Email Address">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-lg email-submit-btn"><i class="email-icon"></i> Submit</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="back-link-frame">
+  <a href="#/" class="back-link">
+    <i class="back-icon"></i> Change selected options
+  </a>
+</div>

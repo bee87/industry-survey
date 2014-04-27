@@ -1,0 +1,32 @@
+<div class="choice-view base-view">
+  <h1>Industry Analyzer</h1>
+  <h2>Select Up To 4 Industries To Compare</h2>
+  <p class="note">(you can change these at any time)</p>
+  <div class="row" ng-repeat="group in data.industries">
+    <div ng-repeat="industry in group" class="col-sm-3">
+      <button
+        role="option"
+        aria-label="Select {{industry.title}}"
+        type="button"
+        btn-checkbox
+        ng-model="industry.selected"
+        ng-disabled="methods.isDisabled(industry)"
+        tabindex="{{methods.isDisabled(industry) ? -1 : ($parent.$index * 4) + $index + 1}}"
+        class="industry-choice"
+        ng-class="{disabled: methods.isDisabled(industry), wiggobble: industry.selected}"
+        ng-change="methods.checkSelection(industry)">
+        <div class="industry-icon icon-{{industry.slug}}"></div>
+        <p>{{industry.title}}</p>
+      </button>
+    </div>
+  </div>
+  <div class="btn-frame">
+    <button
+      type="button"
+      ng-click="methods.submit()"
+      ng-class="{disabled: !methods.getSelected().length}"
+      class="submit-btn btn btn-lg">
+      Submit Choices
+    </button>
+  </div>
+</div>

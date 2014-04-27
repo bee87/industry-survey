@@ -1,0 +1,210 @@
+/**
+ * App Views
+ */
+
+.base-view{
+  padding: 40px 0;
+  @include min-tablet() {
+    padding: 100px 0 140px;
+  }
+  text-align: center;
+  h1{
+    margin: 0 0 20px 0;
+    @include min-tablet() {
+      margin-bottom: 30px;
+    }
+  }
+  h2{
+    margin: 0 0 8px 0;
+  }
+  p{
+    margin-bottom: 30px;
+  }
+}
+
+/**
+ * Choice View
+ */
+
+.choice-view{
+  p.note{
+    color: $accent-color;
+    margin-top: 0;
+    @include min-tablet() {
+      margin-bottom: 50px;
+    }
+  }
+  .industry-choice{
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: $base-border-radius;
+    transition: 0.2s all;
+    cursor: pointer;
+    min-height: 225px;
+    margin-bottom: 20px;
+    @include shade();
+    @include min-tablet() {
+      height: 225px;
+      margin-bottom: 30px;
+    }
+    &:hover{
+      color: #fff;
+    }
+    &:focus{
+      // Default
+      outline: thin dotted;
+      // WebKit
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+    &.disabled{
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    p{
+      margin: 0;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    &:hover, &.active{
+      border-color: $green-icon-color;
+    }
+    &:hover:focus{
+      outline: 0;
+    }
+    &.active{
+      .industry-icon:after{
+        opacity: 1;
+      }
+    }
+    .industry-icon{
+      margin: 0 0 10px;
+    }
+  }
+  .btn-frame{
+    margin-top: 30px;
+    overflow: hidden;
+    .submit-btn{
+      @include cta-button($green-btn-color);
+      min-width: 310px;
+      @include max-mobile() {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+/**
+ * Closing View
+ */
+
+.closing-view{
+  max-width: 800px;
+  margin: 0 auto;
+  p{
+    @include min-tablet() {
+      font-size: 22px;
+      margin-bottom: 60px;
+    }
+  }
+  span.selected-shade{
+    background: $selected-shade-color;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 5px 8px;
+  }
+  .form-frame{
+    max-width: 550px;
+    margin: 0 auto;
+    .form-control{
+      padding: 20px;
+      height: $form-height;
+      @include min-tablet() {
+        padding: 10px 30px;
+        font-size: 23px;
+      }
+    }
+    .input-group{
+      @include max-mobile() {
+        display: block;
+        .form-control{
+          display: block;
+          margin-bottom: 30px;
+          border-radius: $base-border-radius;
+        }
+        .input-group-btn{
+          display: block;
+          width: 100%;
+          white-space: normal;
+          .btn{
+            width: 100%;
+            display: block;
+            border-radius: $base-border-radius;
+          }
+        }
+      }
+    }
+    .email-submit-btn{
+      @include cta-button($green-btn-color);
+      height: $form-height;
+      padding: 0 18px;
+      i.email-icon{
+        position: relative;
+        top: 1px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.back-link-frame{
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.back-link{
+  display: inline-block;
+  padding: 10px 20px;
+  color: $muted-color;
+  text-align: center;
+  @include shade();
+  @include min-tablet() {
+    font-size: 20px;
+  }
+  i{
+    margin-right: 10px;
+  }
+  &:hover, &:focus{
+    text-decoration: none;
+    color: $green-btn-color;
+  }
+  @include min-tablet() {
+    @media screen and (min-height: 700px) {
+      position: absolute;
+      bottom: 80px;
+      min-width: 310px;
+      left: 50%;
+      margin-left: -155px;
+    }
+  }
+}
+
+/**
+ * Success View
+ */
+
+.success-view{
+  .success-image-frame{
+    margin-top: 40px;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+
+
+

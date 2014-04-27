@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Industry Analyzer</title>
+    <meta name="description" content="The best industry analysis in town.">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700">
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/bootstrap-custom.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="surveyApp">
+    <section class="container" ng-view="" role="main"></section>
+
+    <!--[if lt IE 9]>
+    <script src="misc/es5-shim.js"></script>
+    <script src="misc/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/angular-ui-checkbox.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/industry-data.js"></script>
+    <script src="scripts/controllers/closing.js"></script>
+    <script src="scripts/controllers/success.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
