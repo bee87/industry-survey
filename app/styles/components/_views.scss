@@ -66,8 +66,8 @@
       transform: scale(0.9);
     }
     &.active{
-      .industry-icon:after{
-        opacity: 1;
+      .industry-icon{
+        background-position: bottom;
       }
     }
     .industry-icon{
@@ -83,7 +83,7 @@
       .industry-icon{
         float: left;
         width: 50px;
-        height: 32.5px;
+        height: 33px;
         margin: 5px;
       }
       .industry-icon, .industry-icon:after{
